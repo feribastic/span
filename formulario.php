@@ -11,14 +11,14 @@
 <?php
     $local_server="localhost";
     $usuario_server = "root";
-    $senha_server = "Fl@mengo1981";
+    $senha_server = "kkKMagfET8pp6yjR";
     $banco_dados = "span";
     if ($conecta = @mysql_connect($local_server, $usuario_server, $senha_server)){
     if ($db = @mysql_select_db($banco_dados, $conecta)){
     }else { //erro na seleção do banco de dados
     echo "Erro seleção";
     }
-    }else { //erro na conexão com a servidor
+    }else { //erro na conexão com a servidor    
     echo "erro conexão";    
     }
     
