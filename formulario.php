@@ -8,10 +8,7 @@
         <title>Sistema Público de Avaliação Nutricional</title>
     </head>
 <body>    
-
-
-
-form name ="frm" method="post" action="./enviaDados.php">
+<form name ="frm" method="post" action="./enviaDados.php">
 <h3>I-Identifica&ccedil;ão</h3>
 Nome:<input type="text" name="txtNome" maxlength="150" size="70">
 Data de nascimento:<input type="text" name="txtData" maxlength="8" size="8"><br>
