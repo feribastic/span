@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="Felipe Ribas Coutinho" />
+        <meta name="author" content="Instituto de Nutrição UERJ" />
         <title>Sistema Público de Avaliação Nutricional</title>
     </head>
     <body>
