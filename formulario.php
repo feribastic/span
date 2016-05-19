@@ -8,19 +8,7 @@
         <title>Sistema Público de Avaliação Nutricional</title>
     </head>
 <body>    
-    <?php
-    $local_server="localhost";
-    $banco_dados = "span";
-    $usuario_server = "span";
-    $senha_server = "kkKMagfET8pp6yjR";
-    $link   = mysql_connect($senha_server, $usuario_server, $banco_dados);
-    $db     = mysql_selectdb($database_name, $link_identifier);
-    if(!$link)
-    {
-       echo "Erro ao conectar banco de dados. Consulte o administrador do sistema.";
-       exit();
-    }
-    ?>
+
 
 
 form name ="frm" method="post" action="./enviaDados.php">
