@@ -7,23 +7,23 @@
         <meta name="author" content="Felipe Ribas Coutinho" />
         <title>Sistema Público de Avaliação Nutricional</title>
     </head>
-<body>
-<?php
+<body>    
+    <?php
     $local_server="localhost";
+    $banco_dados = "span";
     $usuario_server = "span";
     $senha_server = "kkKMagfET8pp6yjR";
-    $banco_dados = "span";
-    if ($conecta = @mysql_connect($local_server, $usuario_server, $senha_server)){
-    if ($db = @mysql_select_db($banco_dados, $conecta)){
-    }else { //erro na seleção do banco de dados
-    echo "Erro seleção";
+    $link   = mysql_connect($senha_server, $usuario_server, $banco_dados);
+    $db     = mysql_selectdb($database_name, $link_identifier);
+    if(!$link)
+    {
+       echo "Erro ao conectar banco de dados. Consulte o administrador do sistema.";
+       exit();
     }
-    }else { //erro na conexão com a servidor    
-    echo "erro conexão";    
-    }
-    
-?>
-<form name ="frm" method="post" action="./enviaDados.php">
+    ?>
+
+
+form name ="frm" method="post" action="./enviaDados.php">
 <h3>I-Identifica&ccedil;ão</h3>
 Nome:<input type="text" name="txtNome" maxlength="150" size="70">
 Data de nascimento:<input type="text" name="txtData" maxlength="8" size="8"><br>
