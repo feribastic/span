@@ -10,7 +10,7 @@
 <body>
 <?php
     $local_server="localhost";
-    $usuario_server = "root";
+    $usuario_server = "span";
     $senha_server = "kkKMagfET8pp6yjR";
     $banco_dados = "span";
     if ($conecta = @mysql_connect($local_server, $usuario_server, $senha_server)){
