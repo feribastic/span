@@ -1,9 +1,1 @@
-<td>
-    <?php
-            $sql = "SELECT * FROM medida";
-			$rs = mysql_query($sql) or die(mysql_error());
-			while($row = mysql_fetch_array($rs)){
-                            echo "<input type=comboList1 name='medida' value='".$row["cod_medida"]."</input>";
-			}mysql_free_result($rs);
-           ?>
-    </td>
+ALTER TABLE `individuo` CHANGE `escolaridade` `escolaridade` CHAR(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;

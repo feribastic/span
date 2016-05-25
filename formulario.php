@@ -1,3 +1,5 @@
+/* global frm */
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <link href="css/base.css" rel="stylesheet">
@@ -8,6 +10,19 @@
         <title>Sistema Público de Avaliação Nutricional</title>
     </head>
 <body>    
+<?php
+    $local_server="localhost";
+    $banco_dados = "span";
+    $usuario_server = "root";
+    $senha_server = "Fl@mengo1981";
+    $link   = mysql_connect($senha_server, $usuario_server, $banco_dados);
+    $db     = mysql_selectdb($database_name, $link_identifier);
+    if(!$link)
+    {
+       echo "Erro ao conectar banco de dados. Consulte o administrador do sistema.";
+       exit();
+    }
+    ?>   
 <form name ="frm" method="post" action="./enviaDados.php">
 <h3>I-Identifica&ccedil;ão</h3>
 Nome:<input type="text" name="txtNome" maxlength="150" size="70">
@@ -88,7 +103,8 @@ Algum médico ou profissional de saúde já disse que você tem:<br>
 			echo "<input type=checkbox name='doenca' value='".$row["id_doenca"]."' class='box2'>".$row["nome"]."</input> ";
 			}mysql_free_result($rs);
            ?>
-Outros:<input type="text" name="txtOutrosD" maxlength="255" size="100">
+<? Outros:<input type="text" name="txtOutrosD" maxlength="255" size="100">
+?>
 <br>
 Medicamentos utilizados:<input type="text" name="txtMedicamentos" maxlength="255" size="100"><br>
 Suplementos ou ditoterápicos utilizados:<input type="text" name="txtSuplementos" maxlength="255" size="100"><br>
