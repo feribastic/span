@@ -13,8 +13,8 @@
 <?php
     $local_server="localhost";
     $banco_dados = "span";
-    $usuario_server = "root";
-    $senha_server = "Fl@mengo1981";
+    $usuario_server = "span";
+    $senha_server = "span";
     $link   = mysql_connect($senha_server, $usuario_server, $banco_dados);
     $db     = mysql_selectdb($database_name, $link_identifier);
     if(!$link)
