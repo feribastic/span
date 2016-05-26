@@ -12,7 +12,7 @@
     <?php
     $local_server="localhost";
     $usuario_server = "root";
-    $senha_server = "kkKMagfET8pp6yjR";
+    $senha_server = "root";
     $banco_dados = "span";
     if ($conecta = @mysql_connect($local_server, $usuario_server, $senha_server)){
     if ($db = @mysql_select_db($banco_dados, $conecta)){
@@ -29,7 +29,7 @@
 <h2>Identificação</h2><br />
 Nome:<input type="text" name="txtNome" maxlength="150" size="70">
 Data:<input type="date" name="datadiario">
-Hora:<input type="time" name="horaentrevista">
+Hora da entrevista:<input type="time" name="horaentrevista">
 <h2>Refeições</h2><br />
 <TABLE BORDER=1>
 <TR>
@@ -46,10 +46,24 @@ Hora:<input type="time" name="horaentrevista">
     <td><input type="text" name="tiporefeicao" maxlength="15" size=15></td>
     <td><input type="text" name="aliminger" maxlength="30" size="30"></td>
     <td><input type="number" name="qtd" maxlength="5" size="5"></td>
-    <td><input type="text" name="tpmedida" maxlength="18" size="18"</td>
+    <td>
+    <?php
+            $sql = "SELECT * FROM medidas";
+            $rs = mysql_query($sql) or die(mysql_error());
+			while($row = mysql_fetch_array($rs)){                            
+			echo "<input type=list name='tpmedida' value='".$row["DESC_medida"]."' class='box2'></input>";
+                        }mysql_free_result($rs);
+    ?>
+        <br>
+    </td>
+
+
+
+
+
 </tr>
 </TABLE>
-    <input type=submit name="Gravar entrevista">
+<input type=submit name="Gravar entrevista">
 </center>
 </body>
 </html>
