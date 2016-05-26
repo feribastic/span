@@ -1,1 +1,0 @@
-ALTER TABLE `individuo` CHANGE `escolaridade` `escolaridade` CHAR(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;

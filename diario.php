@@ -7,30 +7,34 @@
         <title>Diário Alimentar - Sistema Público de Avaliação Nutricional</title>
     </head>
     <body><center>
-        <h2><center>Instituto de Nutrição UERJ</center></h2>
+        <h2><center>Instituto de Nutrição UERJ</center></h2>    
         <h3><center>Departamento de Nutrição Social</center></h3>
-    <?php
-    $local_server="localhost";
-    $usuario_server = "root";
-    $senha_server = "root";
-    $banco_dados = "span";
-    if ($conecta = @mysql_connect($local_server, $usuario_server, $senha_server)){
-    if ($db = @mysql_select_db($banco_dados, $conecta)){
-    }else { //erro na seleção do banco de dados
-    echo "Erro seleção";
-    }
-    }else { //erro na conexão com a servidor
-    echo "erro conexão";    
-    }
-    
+<?php
+require 'conn.php';
 ?>
+        
 <form name ="frmdiario" method="post" action="./enviadiario.php">
-<h1><center><b>Diário Alimentar</b></center></h1>
-<h2>Identificação</h2><br />
-Nome:<input type="text" name="txtNome" maxlength="150" size="70">
-Data:<input type="date" name="datadiario">
-Hora da entrevista:<input type="time" name="horaentrevista">
-<h2>Refeições</h2><br />
+    <div>
+    <h2><center><b><u>Recordatório Alimentar</u></b></center></h2>
+    Nome:<select>
+    <label for="">Selecione um nome</label> 
+    <option>Nome</option> 
+                <?php
+                    $query = mysql_query("SELECT id, nome FROM individuo");
+                    while($med = mysql_fetch_array($query)) { ?>
+                    <option value="<?php echo $med['id'] ?>"><?php echo $med['id'] ?>  -  <?php echo $med['nome'] ?></option>
+                <?php } ?>
+ 
+        </select>
+    <br />
+    Data:<input type="date" name="datadiario">
+    <br />
+    Hora da entrevista:<input type="time" name="horaentrevista">
+    <br />
+    Dia da Semana:<input type="txt" name="diadasemana">
+    </div>
+<div>
+<h2>Refeições</h2>
 <TABLE BORDER=1>
 <TR>
 <TD>Hora</TD>
@@ -42,28 +46,24 @@ Hora da entrevista:<input type="time" name="horaentrevista">
 </TR>
 <TR>
     <td><input type="time" name="horarefeicao" maxlength="5" size="5"></td>
-    <TD><input type="text" name="locarefeicao" maxlength="8" size="8"></td>
+    <TD><input type="text" name="localrefeicao" maxlength="8" size="8"></td>
     <td><input type="text" name="tiporefeicao" maxlength="15" size=15></td>
-    <td><input type="text" name="aliminger" maxlength="30" size="30"></td>
+    <td><input type="text" name="alim_ingerido" maxlength="30" size="30"></td>
     <td><input type="number" name="qtd" maxlength="5" size="5"></td>
     <td>
-    <?php
-            $sql = "SELECT * FROM medidas";
-            $rs = mysql_query($sql) or die(mysql_error());
-			while($row = mysql_fetch_array($rs)){                            
-			echo "<input type=list name='tpmedida' value='".$row["DESC_medida"]."' class='box2'></input>";
-                        }mysql_free_result($rs);
-    ?>
-        <br>
+        <select>
+            <option>Selecione uma medida</option> 
+                <?php
+                    $query = mysql_query("SELECT COD_medida, DESC_medida, QTD_gramas FROM medidas");
+                    while($med = mysql_fetch_array($query)) { ?>
+                    <option value="<?php echo $med['DESC_medida'] ?>"><?php echo $med['DESC_medida'] ?></option>
+                <?php } ?> 
+        </select>
     </td>
-
-
-
-
-
-</tr>
+</TR>
 </TABLE>
-<input type=submit name="Gravar entrevista">
+</div>
+<input type=submit name="enviaentrevista">
 </center>
 </body>
 </html>
