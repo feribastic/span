@@ -1,5 +1,3 @@
-/* global frm */
-
 <!DOCTYPE html>
 <html lang="pt-BR">
     <link href="css/base.css" rel="stylesheet">

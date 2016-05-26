@@ -11,7 +11,7 @@
 <?php
     $local_server="localhost";
     $usuario_server = "root";
-    $senha_server = "Fl@mengo1981";
+    $senha_server = "root";
     $banco_dados = "span";
     if ($conecta = @mysql_connect($local_server, $usuario_server, $senha_server)){
     if ($db = @mysql_select_db($banco_dados, $conecta)){
