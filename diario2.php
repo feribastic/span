@@ -22,11 +22,11 @@ require 'conn.php';
                 <?php
                         $sql = "SELECT * from individuo";
                         $executar = mysql_query($sql) or die (mysql_error());
-                        while ($reg = mysql_fetch_array ($executar))
+                        while ($selecnome = mysql_fetch_array ($executar))
                         {
                     ?>
                         }
-                        <option value="<?php echo $reg['id']; ?>"><?php echo $reg['nome']; ?></option>
+                        <option value="<?php echo $selecnome['id'] ?>"><?php echo $selecnome['nome'] ?></option>
                 <?php
                             } 
                             
@@ -55,7 +55,23 @@ require 'conn.php';
     <td><input type="time" name="horarefeicao" maxlength="5" size="5"></td>
     <TD><input type="text" name="localrefeicao" maxlength="8" size="8"></td>
     <td><input type="text" name="nomerefeicao" maxlength="15" size=15></td>
-    <td><input type="text" name="alim_ingerido" maxlength="30" size="30"></td>
+    <td>
+        <select name="selecalimento">
+            <option>Selecione um alimento</option> 
+                <?php
+                        $sql = "SELECT * from alimentos";
+                        $executar = mysql_query($sql) or die (mysql_error());
+                        while ($selecalimento = mysql_fetch_array ($executar))
+                        {
+                    ?>
+                        }
+                        <option value="<?php echo $selecalimento['cod'] ?>"><?php echo $selecalimento['nome'] ?></option>
+                <?php
+                            } 
+                            
+                ?>
+        </select>
+    </td>
     <td><input type="number" name="qtd" maxlength="5" size="5"></td>
     <td>
         <select name="selecmedida">
@@ -63,11 +79,11 @@ require 'conn.php';
                 <?php
                         $sql = "SELECT * from medida";
                         $executar = mysql_query($sql) or die (mysql_error());
-                        while ($med = mysql_fetch_array ($executar))
+                        while ($selecmedida = mysql_fetch_array ($executar))
                         {
                     ?>
                         }
-                        <option value="<?php echo $med['descricao']; ?>"><?php echo $med['descricao']; ?></option>
+                        <option value="<?php echo $selecmedida['cod_medida'] ?>"><?php echo $selecmedida['descricao'] ?></option>
                 <?php
                             } 
                             

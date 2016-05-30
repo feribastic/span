@@ -13,15 +13,15 @@
 require 'conn.php';
 
 //Variaveis para os posts do formulario    
-    $insere_nome = $_POST[$reg];
+    $insere_nome = $_POST['selecnome'];
     $hrefeicao = $_POST["horarefeicao"];
     $nome_refeicao = $_POST["nomerefeicao"];
     $localref = $_POST["localrefeicao"];
-    $a_ingerido = $_POST["alim_ingerido"];
+    $a_ingerido = $_POST['selecalimento'];
     $dtdiario = $_POST["datadiario"];
     $dsemana = $_POST["diadasemana"];
     $quant = $_POST ["qtd"];
-    $insere_medida = $_POST [$med];
+    $insere_medida = $_POST ['selecmedida'];
 
 //Insere os dados no banco de dados
     $sqli = "INSERT INTO `span`.`refeicao` (`id_individuo`, `hora_refeicao`, `nome_refeicao`, `alimento`, `local`, `data`, `dia_semana`, `quantidade`, `medida`)".
@@ -29,12 +29,13 @@ require 'conn.php';
 
 //Tratamento de erros da operacao        
     if ($query === \mysql_query($sqli)){
-                echo "Cadastro realizado com sucesso";                                            
+                echo "Não foi possível realizar o cadastro da informação. Por favor contate o administrador do sistema";                                            
             } else {
-                echo "Erro - Contate o administrador do sistema";    
+                echo "Cadastro realizado com sucesso";    
                echo mysql_error();
             }
-var_dump($_POST)
+// Testa o conteúdo das variáveis declaradas
+// var_dump($_POST)
             
 ?>
 </body>
