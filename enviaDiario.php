@@ -13,27 +13,29 @@
 require 'conn.php';
 
 //Variaveis para os posts do formulario    
-    $nome = $_POST[$envia_id];
+    $insere_nome = $_POST[$reg];
     $hrefeicao = $_POST["horarefeicao"];
-    $nomerefeicao = $_POST["nomerefeicao"];
+    $nome_refeicao = $_POST["nomerefeicao"];
     $localref = $_POST["localrefeicao"];
     $a_ingerido = $_POST["alim_ingerido"];
     $dtdiario = $_POST["datadiario"];
     $dsemana = $_POST["diadasemana"];
     $quant = $_POST ["qtd"];
-    $medidaref = $_POST [$envia_medida];
+    $insere_medida = $_POST [$med];
 
 //Insere os dados no banco de dados
-    $sql = "INSERT INTO `span`.`refeicao` (`id_individuo`, `id_refeicao`, `hora_refeicao`, `nome_refeicao`, `alimento`, `local`, `data`, `dia_semana`, `data_cadastro`, `quantidade`, `medida`)
-                                   VALUES (' $nome ', NULL, ' $hrefeicao ', ' $nomerefeicao ', ' $a_ingerido ', ' $localref ', ' $dtdiario ', ' $dsemana ', CURRENT_TIMESTAMP, ' $quant ', ' $medidaref ')";
+    $sqli = "INSERT INTO `span`.`refeicao` (`id_individuo`, `hora_refeicao`, `nome_refeicao`, `alimento`, `local`, `data`, `dia_semana`, `quantidade`, `medida`)".
+                                   "VALUES ('$insere_nome', '$hrefeicao', '$nome_refeicao', '$a_ingerido', '$localref', '$dtdiario', '$dsemana', '$quant', '$insere_medida')";
 
 //Tratamento de erros da operacao        
-    if ($query === \mysql_query($sql)){
+    if ($query === \mysql_query($sqli)){
                 echo "Cadastro realizado com sucesso";                                            
             } else {
                 echo "Erro - Contate o administrador do sistema";    
-               mysql_error();
+               echo mysql_error();
             }
+var_dump($_POST)
+            
 ?>
 </body>
 </html>
