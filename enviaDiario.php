@@ -19,13 +19,13 @@ require 'conn.php';
     $localref = $_POST["localrefeicao"];
     $a_ingerido = $_POST['selecalimento'];
     $dtdiario = $_POST["datadiario"];
-    $dsemana = $_POST["diadasemana"];
-    $quant = $_POST ["qtd"];
-    $insere_medida = $_POST ['selecmedida'];
+    $quant = $_POST["qtd"];
+    $insere_medida = $_POST['selecmedida'];
+    $insere_dia = $_POST['selecdia'];
 
 //Insere os dados no banco de dados
     $sqli = "INSERT INTO `span`.`refeicao` (`id_individuo`, `hora_refeicao`, `nome_refeicao`, `alimento`, `local`, `data`, `dia_semana`, `quantidade`, `medida`)".
-                                   "VALUES ('$insere_nome', '$hrefeicao', '$nome_refeicao', '$a_ingerido', '$localref', '$dtdiario', '$dsemana', '$quant', '$insere_medida')";
+                                   "VALUES ('$insere_nome', '$hrefeicao', '$nome_refeicao', '$a_ingerido', '$localref', '$dtdiario', '$insere_dia', '$quant', '$insere_medida')";
 
 //Tratamento de erros da operacao        
     if ($query === \mysql_query($sqli)){

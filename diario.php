@@ -16,14 +16,21 @@ require 'conn.php';
 <form name ="frmdiario" method="post" action="./enviaDiario.php">
     <div>
     <h2><center><b><u>Recordatório Alimentar</u></b></center></h2>
-    Nome:<select>
+    Nome:<select name="selecnome">
     <label for="">Selecione um nome</label> 
     <option>Nome</option> 
                 <?php
-                    $query = mysql_query("SELECT id, nome FROM individuo");
-                    while($nome = mysql_fetch_array($query)) { ?>
-                    <option value="<?php echo $id_nome['id']; ?>"><?php echo $nome['nome'] ?></option>
-                <?php } ?>
+                        $sql = "SELECT * from individuo";
+                        $executar = mysql_query($sql) or die (mysql_error());
+                        while ($selecnome = mysql_fetch_array ($executar))
+                        {
+                    ?>
+                        }
+                        <option value="<?php echo $selecnome['id'] ?>"><?php echo $selecnome['nome'] ?></option>
+                <?php
+                            } 
+                            
+                ?>
  
         </select>
     <br />
@@ -31,8 +38,25 @@ require 'conn.php';
     <br />
     Hora da entrevista:<input type="time" name="horaentrevista">
     <br />
-    Dia da Semana:<input type="txt" name="diadasemana">
-    </div>
+    Dia da Semana:
+    <select name="selecdia">
+    <label for="">Selecione um nome</label> 
+    <option>Nome</option> 
+                <?php
+                        $sql = "SELECT * from diasemana";
+                        $executar = mysql_query($sql) or die (mysql_error());
+                        while ($selecdia = mysql_fetch_array ($executar))
+                        {
+                    ?>
+                        }
+                        <option value="<?php echo $selecdia['dia'] ?>"><?php echo $selecdia['dia'] ?></option>
+                <?php
+                            } 
+                            
+                ?>
+ 
+        </select>
+    <br />
 <div>
 <h2>Refeições</h2>
 <TABLE BORDER=1>
@@ -47,23 +71,53 @@ require 'conn.php';
 <TR>
     <td><input type="time" name="horarefeicao" maxlength="5" size="5"></td>
     <TD><input type="text" name="localrefeicao" maxlength="8" size="8"></td>
-    <td><input type="text" name="tiporefeicao" maxlength="15" size=15></td>
-    <td><input type="text" name="alim_ingerido" maxlength="30" size="30"></td>
+    <td><input type="text" name="nomerefeicao" maxlength="15" size=15></td>
+    <td>
+        <select name="selecalimento">
+            <option>Selecione um alimento</option> 
+                <?php
+                        $sql = "SELECT * from alimentos";
+                        $executar = mysql_query($sql) or die (mysql_error());
+                        while ($selecalimento = mysql_fetch_array ($executar))
+                        {
+                    ?>
+                        }
+                        <option value="<?php echo $selecalimento['cod'] ?>"><?php echo $selecalimento['nome'] ?></option>
+                <?php
+                            } 
+                            
+                ?>
+        </select>
+    </td>
     <td><input type="number" name="qtd" maxlength="5" size="5"></td>
     <td>
-        <select>
+        <select name="selecmedida">
             <option>Selecione uma medida</option> 
                 <?php
-                    $query = mysql_query("SELECT COD_medida, descricao FROM medida");
-                    while($medida = mysql_fetch_array($query)) { ?>
-                    <option value="<?php echo $envia_medida['descricao']; ?>"><?php echo $medida['descricao'] ?></option>
-                <?php } ?> 
+                        $sql = "SELECT * from medida";
+                        $executar = mysql_query($sql) or die (mysql_error());
+                        while ($selecmedida = mysql_fetch_array ($executar))
+                        {
+                    ?>
+                        }
+                        <option value="<?php echo $selecmedida['cod_medida'] ?>"><?php echo $selecmedida['descricao'] ?></option>
+                <?php
+                            } 
+                            
+                ?>
         </select>
     </td>
 </TR>
 </TABLE>
 </div>
-<input type=submit name="enviaentrevista">
+<center>
+    <input type=submit name="enviaentrevista" value="Enviar">
+    <input type="reset" name="limpaform" value="Limpar">
+    <button><a href="javascript:window.history.go(-1)">Voltar</a></button>
 </center>
 </body>
+<br /> 
+<footer>
+    <center>Copyright 2016 - Todos os direitos reservados - Instituto de Nutrição - Departamento de Nutrção Social</center>
+</footer>
 </html>

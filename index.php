@@ -7,13 +7,28 @@
         <title>Sistema Público de Avaliação Nutricional</title>
     </head>
     <body>
+    <center>
         <h2><center>Instituto de Nutrição UERJ</center></h2>
         <h3><center>Departamento de Nutrição Social</center></h3>
-        <p><center>Para iniciar o preenchimento do formulário, clique aqui</center></p>
-
-	<p></p>
+    <TABLE BORDER=1>
+        <center>
+        <TR>
+            <TD><center><b>Cadastro de pessoas</b></center></TD>
+            <TD><center><b>Recordatório alimentar</b></center></TD>
+        </TR>
+        <tr>
+            <td>
+                <center>
+                    <button><a href="form.php"> Clique aqui </a></button><br />
+                </center>
+            </td>
+            <td>
+                <center>
+                    <button><a href="diario.php "> Clique aqui </a></button><br />
+                </center>
+            </td>
+        </tr>
+        </center>
+    </center>
     </body>
-    <footer>
-        <p><center>Informática - Instituto de Nutrição UERJ<center></p>
-    </footer>
 </html>
