@@ -1,21 +1,20 @@
 <html lang="pt-BR">
     <link href="css/base.css" rel="stylesheet">
-    <head>
+        <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Felipe Ribas Coutinho" />
         <title>Diário Alimentar - Sistema Público de Avaliação Nutricional</title>
-    </head>
-    <body><center>
-        <h2><center>Instituto de Nutrição UERJ</center></h2>    
-        <h3><center>Departamento de Nutrição Social</center></h3>
+        </head>
+    <body>
+    <center>
 <?php
 require 'conn.php';
 ?>
         
 <form name ="frmdiario" method="post" action="./enviaDiario.php">
     <div>
-    <h2><center><b><u>Recordatório Alimentar</u></b></center></h2>
+    <h2><b><u>Recordatório Alimentar</u></b></h2>
     Nome:<select name="selecnome">
     <label for="">Selecione um nome</label> 
     <option>Nome</option> 
@@ -118,6 +117,6 @@ require 'conn.php';
 </body>
 <br /> 
 <footer>
-    <center>Copyright 2016 - Todos os direitos reservados - Instituto de Nutrição - Departamento de Nutrção Social</center>
+    <center>Copyright 2016 - Todos os direitos reservados - Instituto de Nutrição - Departamento de Nutrição Social</center>
 </footer>
 </html>
