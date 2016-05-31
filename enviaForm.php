@@ -42,6 +42,9 @@ include 'conn.php';
     $peso = $_POST["txtPeso"];
     $ESsaude = $_POST["radES"];
     $radpsp = $_POST["radPSP"];
+    $ins_doenca1 = $_POST["selecdoencas1"];
+    $ins_doenca2 = $_POST["selecdoencas2"];
+    $ins_doenca3 = $_POST["selecdoencas3"];
     $outrasdoencas = $_POST["txtOutrosD"];
     $medicamentos = $_POST["txtMedicamentos"];
     $suplementos = $_POST["txtSuplementos"];
@@ -53,9 +56,10 @@ include 'conn.php';
     $bebida_freq = $_POST["txtBFreq"];
     $opiniao = $_POST["txtAS"];
     
+    
 //Insere dados do formulario no banco
-    $sql = "INSERT INTO `individuo`(`id`, `nome`, `nasc`, `idade`, `sexo`, `naturalidade`, `nacionalidade`, `endereco`, `cep`, `bairro`, `municipio`, `telefone1`, `telefone2`, `email`, `escolaridade`, `curso`, `profissao`, `trabalha_atualmente`, `aposentado`, `estado_civil`, `arranjo_domiciliar`, `pessoas_m_domicilio`, `num_pessoas_renda`, `tipo_renda`, `renda_mensal`, `religiao`, `motivo_inscricao`, `altura`, `peso`, `estado_saude`, `plano_saude`, `doenca1`, `doenca2`, `doenca3`, `doenca4`, `doenca5`, `doenca6`, `doenca7`, `doenca8`, `doenca9`, `doenca10`, `doenca11`, `doenca12`, `doenca13`, `doenca14`, `doenca_outros`, `medicamentos`, `fitoterapicos`, `cirurgias`, `tabagista`, `tabagismo_tempo`, `alcool`, `alcool_tipo`, `alcool_freq`, `opiniao`, `data`)".
-                            "VALUES ('$nome','$dnasc', '$idade', '$sexo', '$naturalidae', '$nacionalidade', '$endereco', '$CEP', '$bairro', '$municipio', '$tel1', '$tel2', '$email', '$escolaridade', '$curso', '$profissao', '$trabalhando', '$aposentado', '$estadoCivil', '$arranjoDomiciliar', '$numeroDomicilio', '$pessoasRenda', '$tipoRenda', '$renda', '$religiao', '$motivoinsc', '$altura', '$peso', '$ESsaude', $radpsp', '$outrasdoencas', '$medicamentos', '$suplementos', '$cirurgia', '$tabagista', '$tempofumo', '$bebida', '$bebida_tipo', '$bebida_freq', '$opiniao')";
+    $sql = "INSERT INTO `individuo`(`id`, `nome`, `nasc`, `idade`, `sexo`, `naturalidade`, `nacionalidade`, `endereco`, `cep`, `bairro`, `municipio`, `telefone1`, `telefone2`, `email`, `escolaridade`, `curso`, `profissao`, `trabalha_atualmente`, `aposentado`, `estado_civil`, `arranjo_domiciliar`, `pessoas_m_domicilio`, `num_pessoas_renda`, `tipo_renda`, `renda_mensal`, `religiao`, `motivo_inscricao`, `altura`, `peso`, `estado_saude`, `plano_saude`, `doenca1`, `doenca2`, `doenca3`, `doenca_outros`, `medicamentos`, `fitoterapicos`, `cirurgias`, `tabagista`, `tabagismo_tempo`, `alcool`, `alcool_tipo`, `alcool_freq`, `opiniao`, `data`)".
+                            "VALUES ('$nome','$dnasc', '$idade', '$sexo', '$naturalidae', '$nacionalidade', '$endereco', '$CEP', '$bairro', '$municipio', '$tel1', '$tel2', '$email', '$escolaridade', '$curso', '$profissao', '$trabalhando', '$aposentado', '$estadoCivil', '$arranjoDomiciliar', '$numeroDomicilio', '$pessoasRenda', '$tipoRenda', '$renda', '$religiao', '$motivoinsc', '$altura', '$peso', '$ESsaude', $radpsp', '$ins_doenca1', '$ins_doenca2', '$ins_doenca3', '$outrasdoencas', '$medicamentos', '$suplementos', '$cirurgia', '$tabagista', '$tempofumo', '$bebida', '$bebida_tipo', '$bebida_freq', '$opiniao')";
  
 //Tratamento de erros da operacao        
     if ($query === \mysql_query($sql)){
@@ -65,8 +69,7 @@ include 'conn.php';
                echo mysql_error();
             }
 // Testa o conteúdo das variáveis declaradas
-//var_dump($_POST)
-
+var_dump($_POST)
 ?>
     
 </body>
