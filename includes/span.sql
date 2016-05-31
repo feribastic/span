@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tempo de Geração: 30/05/2016 às 14:08
+-- Tempo de Geração: 31/05/2016 às 14:44
 -- Versão do servidor: 5.5.49-0ubuntu0.14.04.1
 -- Versão do PHP: 5.5.9-1ubuntu4.17
 
@@ -1677,17 +1677,25 @@ INSERT INTO `alimentos` (`cod`, `nome`, `id_grupo`, `id_subgrupo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `alimentos_ingeridos`
+-- Estrutura para tabela `diasemana`
 --
 
-CREATE TABLE IF NOT EXISTS `alimentos_ingeridos` (
-  `cod_alimento` int(11) NOT NULL,
-  `id_refeicao` int(11) NOT NULL,
-  `qtd_gramas` float NOT NULL,
-  `qtd_caseiro` float NOT NULL,
-  PRIMARY KEY (`cod_alimento`,`id_refeicao`),
-  KEY `id_refeicao` (`id_refeicao`)
+CREATE TABLE IF NOT EXISTS `diasemana` (
+  `dia` varchar(100) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Fazendo dump de dados para tabela `diasemana`
+--
+
+INSERT INTO `diasemana` (`dia`) VALUES
+('Segunda'),
+('Terça'),
+('Quarta'),
+('Quinta'),
+('Sexta'),
+('Sábado'),
+('Domingo');
 
 -- --------------------------------------------------------
 
@@ -1697,7 +1705,7 @@ CREATE TABLE IF NOT EXISTS `alimentos_ingeridos` (
 
 CREATE TABLE IF NOT EXISTS `doencas` (
   `id_doenca` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(255) COLLATE utf8_bin NOT NULL,
+  `nome_doenca` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id_doenca`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=15 ;
 
@@ -1705,7 +1713,7 @@ CREATE TABLE IF NOT EXISTS `doencas` (
 -- Fazendo dump de dados para tabela `doencas`
 --
 
-INSERT INTO `doencas` (`id_doenca`, `nome`) VALUES
+INSERT INTO `doencas` (`id_doenca`, `nome_doenca`) VALUES
 (1, 'Hipertensão arterial'),
 (2, 'Colesterol elevado'),
 (3, 'Triglicerídio elevado'),
@@ -1720,64 +1728,6 @@ INSERT INTO `doencas` (`id_doenca`, `nome`) VALUES
 (12, 'Diarréia'),
 (13, 'Anemia'),
 (14, 'Depressão');
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `entrevistas`
---
-
-CREATE TABLE IF NOT EXISTS `entrevistas` (
-  `id_entrevista` int(11) NOT NULL AUTO_INCREMENT,
-  `id_individuo` int(11) NOT NULL,
-  `estado_saude` varchar(255) COLLATE utf8_bin NOT NULL,
-  `plano_saude` varchar(255) COLLATE utf8_bin NOT NULL,
-  `doenca1` int(11) NOT NULL,
-  `doenca2` int(11) NOT NULL,
-  `doenca3` int(11) NOT NULL,
-  `doenca4` int(11) NOT NULL,
-  `doenca5` int(11) NOT NULL,
-  `doenca6` int(11) NOT NULL,
-  `doenca7` int(11) NOT NULL,
-  `doenca8` int(11) NOT NULL,
-  `doenca9` int(11) NOT NULL,
-  `doenca10` int(11) NOT NULL,
-  `doenca11` int(11) NOT NULL,
-  `doenca12` int(11) NOT NULL,
-  `doenca13` int(11) NOT NULL,
-  `doenca14` int(11) NOT NULL,
-  `doenca_outros` varchar(255) COLLATE utf8_bin NOT NULL,
-  `medicamentos` varchar(255) COLLATE utf8_bin NOT NULL,
-  `fitoterapicos` varchar(255) COLLATE utf8_bin NOT NULL,
-  `cirurgias` varchar(255) COLLATE utf8_bin NOT NULL,
-  `tabagista` varchar(10) COLLATE utf8_bin NOT NULL,
-  `tabagismo_tempo` varchar(50) COLLATE utf8_bin NOT NULL,
-  `alcool` varchar(10) COLLATE utf8_bin NOT NULL,
-  `alcool_tipo` varchar(255) COLLATE utf8_bin NOT NULL,
-  `alcool_freq` varchar(255) COLLATE utf8_bin NOT NULL,
-  `opiniao` varchar(255) COLLATE utf8_bin NOT NULL,
-  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_entrevista`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `grupo`
---
-
-CREATE TABLE IF NOT EXISTS `grupo` (
-  `id_grupo` int(11) NOT NULL,
-  `nome_grupo` varchar(255) CHARACTER SET latin1 NOT NULL,
-  PRIMARY KEY (`id_grupo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Fazendo dump de dados para tabela `grupo`
---
-
-INSERT INTO `grupo` (`id_grupo`, `nome_grupo`) VALUES
-(0, '');
 
 -- --------------------------------------------------------
 
@@ -1800,31 +1750,47 @@ CREATE TABLE IF NOT EXISTS `individuo` (
   `telefone1` int(11) NOT NULL,
   `telefone2` int(11) NOT NULL,
   `email` varchar(150) CHARACTER SET latin1 NOT NULL,
-  `escolaridade` char(30) CHARACTER SET latin1 NOT NULL,
+  `escolaridade` varchar(30) COLLATE utf8_bin NOT NULL,
   `curso` varchar(255) CHARACTER SET latin1 NOT NULL,
   `profissao` varchar(50) CHARACTER SET latin1 NOT NULL,
   `trabalha_atualmente` varchar(255) CHARACTER SET latin1 NOT NULL,
   `aposentado` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `estado_civil` varchar(26) CHARACTER SET latin1 NOT NULL,
-  `arranjo_domiciliar` varchar(70) CHARACTER SET latin1 NOT NULL,
-  `pessoas_m_domicilio` int(11) NOT NULL,
-  `num_pessoas_renda` int(11) NOT NULL,
-  `tipo_renda` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `renda_mensal` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `religiao` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `motivo_inscricao` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `altura` float NOT NULL,
-  `peso_inicio` float NOT NULL,
-  `peso_fim` float DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=3 ;
+  `estado_civil` varchar(26) COLLATE utf8_bin DEFAULT NULL,
+  `arranjo_domiciliar` varchar(70) COLLATE utf8_bin DEFAULT NULL,
+  `pessoas_m_domicilio` int(11) DEFAULT NULL,
+  `num_pessoas_renda` int(11) DEFAULT NULL,
+  `tipo_renda` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `renda_mensal` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `religiao` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `motivo_inscricao` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `altura` int(11) DEFAULT NULL,
+  `peso` int(11) DEFAULT NULL,
+  `estado_saude` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `plano_saude` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `doenca1` int(11) DEFAULT NULL,
+  `doenca2` int(11) DEFAULT NULL,
+  `doenca3` int(11) DEFAULT NULL,
+  `doenca_outros` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `medicamentos` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `fitoterapicos` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `cirurgias` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tabagista` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `tabagismo_tempo` varchar(50) COLLATE utf8_bin DEFAULT NULL,
+  `alcool` varchar(10) COLLATE utf8_bin DEFAULT NULL,
+  `alcool_tipo` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `alcool_freq` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `opiniao` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=9 ;
 
 --
 -- Fazendo dump de dados para tabela `individuo`
 --
 
-INSERT INTO `individuo` (`id`, `nome`, `nasc`, `idade`, `sexo`, `naturalidade`, `nacionalidade`, `endereco`, `cep`, `bairro`, `municipio`, `telefone1`, `telefone2`, `email`, `escolaridade`, `curso`, `profissao`, `trabalha_atualmente`, `aposentado`, `estado_civil`, `arranjo_domiciliar`, `pessoas_m_domicilio`, `num_pessoas_renda`, `tipo_renda`, `renda_mensal`, `religiao`, `motivo_inscricao`, `altura`, `peso_inicio`, `peso_fim`) VALUES
-(2, 'Felipe Ribas Coutinho', '0000-00-00', 0, '', '', '', '', 0, '', '', 0, 0, '', '', '', '', '', '', '', '', 0, 0, '', '', '', '', 0, 0, NULL);
+INSERT INTO `individuo` (`id`, `nome`, `nasc`, `idade`, `sexo`, `naturalidade`, `nacionalidade`, `endereco`, `cep`, `bairro`, `municipio`, `telefone1`, `telefone2`, `email`, `escolaridade`, `curso`, `profissao`, `trabalha_atualmente`, `aposentado`, `estado_civil`, `arranjo_domiciliar`, `pessoas_m_domicilio`, `num_pessoas_renda`, `tipo_renda`, `renda_mensal`, `religiao`, `motivo_inscricao`, `altura`, `peso`, `estado_saude`, `plano_saude`, `doenca1`, `doenca2`, `doenca3`, `doenca_outros`, `medicamentos`, `fitoterapicos`, `cirurgias`, `tabagista`, `tabagismo_tempo`, `alcool`, `alcool_tipo`, `alcool_freq`, `opiniao`, `data`) VALUES
+(8, 'Natanael Antonio da Silva', '1981-04-02', 35, 'M', 'Rio de Janeiro', 'Brasileiro', 'Rua São Francisco Xavier, 524', 20550900, 'Maracana', 'Rio de Janeiro', 2121, 2121, 'natanaelbolado@bolacao.cut', 'SC', '', 'Designer gráfico', 'Sim', 'Não', 'Solteiro', 'Só', 1, 1, 'Proprio', '8SM-10SM', 'Catolico', 'Para saber mais informações sobre a alimentação e como ela reflete em nosso corpo.', 180, 80, 'Muito Boa', 'Sim', 13, 10, 6, 'Não possui', 'Lozartan', 'Mel com propólis', 'Não', 'Nao', 'NULL', 'Sim', 'NULL', 'NULL', 'Nao tenho opiniao formada sobre o tema', '2016-05-31 17:43:08');
 
 -- --------------------------------------------------------
 
@@ -1960,11 +1926,11 @@ CREATE TABLE IF NOT EXISTS `refeicao` (
   `id_individuo` int(11) NOT NULL,
   `id_refeicao` int(11) NOT NULL AUTO_INCREMENT,
   `hora_refeicao` time NOT NULL,
-  `nome_refeicao` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `nome_refeicao` varchar(255) COLLATE utf8_bin NOT NULL,
   `alimento` varchar(255) COLLATE utf8_bin NOT NULL,
-  `local` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `local` varchar(255) COLLATE utf8_bin NOT NULL,
   `data` date NOT NULL,
-  `dia_semana` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `dia_semana` varchar(255) COLLATE utf8_bin NOT NULL,
   `data_cadastro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `quantidade` int(11) NOT NULL,
   `medida` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -1972,55 +1938,6 @@ CREATE TABLE IF NOT EXISTS `refeicao` (
   KEY `id_individuo` (`id_individuo`),
   KEY `id_individuo_2` (`id_individuo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `subgrupo`
---
-
-CREATE TABLE IF NOT EXISTS `subgrupo` (
-  `id_subgrupo` int(11) NOT NULL,
-  `nome_subgrupo` varchar(255) CHARACTER SET latin1 NOT NULL,
-  PRIMARY KEY (`id_subgrupo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Fazendo dump de dados para tabela `subgrupo`
---
-
-INSERT INTO `subgrupo` (`id_subgrupo`, `nome_subgrupo`) VALUES
-(0, '');
-
---
--- Restrições para dumps de tabelas
---
-
---
--- Restrições para tabelas `alimentos`
---
-ALTER TABLE `alimentos`
-  ADD CONSTRAINT `alimentos_ibfk_1` FOREIGN KEY (`id_grupo`) REFERENCES `grupo` (`id_grupo`),
-  ADD CONSTRAINT `alimentos_ibfk_2` FOREIGN KEY (`id_subgrupo`) REFERENCES `subgrupo` (`id_subgrupo`);
-
---
--- Restrições para tabelas `alimentos_ingeridos`
---
-ALTER TABLE `alimentos_ingeridos`
-  ADD CONSTRAINT `alimentos_ingeridos_ibfk_1` FOREIGN KEY (`cod_alimento`) REFERENCES `alimentos` (`cod`),
-  ADD CONSTRAINT `alimentos_ingeridos_ibfk_2` FOREIGN KEY (`id_refeicao`) REFERENCES `refeicao` (`id_refeicao`);
-
---
--- Restrições para tabelas `entrevistas`
---
-ALTER TABLE `entrevistas`
-  ADD CONSTRAINT `entrevistas_ibfk_1` FOREIGN KEY (`id_entrevista`) REFERENCES `individuo` (`id`);
-
---
--- Restrições para tabelas `refeicao`
---
-ALTER TABLE `refeicao`
-  ADD CONSTRAINT `refeicao_ibfk_1` FOREIGN KEY (`id_individuo`) REFERENCES `individuo` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
