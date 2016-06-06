@@ -1,48 +1,42 @@
-/* BODY[INICIO] */
 body {
-    width: 100%;
-    margin: 0;
-    font-family: Geneva, Verdana, sans-serif;
-    font-size: 100%;
-    line-height: 200%
+   background-color: #FFFAFA;
+   font-family: "arial";
+   padding-left: 2cm;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   margin-right: 20px;
+   margin-left: 20px;
 }
-/* BODY[FIM] */
-/* CABECALHO[INICIO] */
-#cabecalho {
-    width: 100%;
-    background-color: #FFFFFF;
-    padding: 0 5% 0 5%;
-    border-top: 1px solid #66B24C;
-    transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -webkit-transition: all 0.5s;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    float: left;
+
+h1 {
+    color: #006400;
+    text-align: center;
+    line-height: 120%;
 }
-/* RODAPE[INICIO] */
-#rodape {
-    width: 100%;
-    background-color: #F8F8F8;
-    min-height: 8px;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    float: left;
+
+h2 {
+    color: #006400;
+    text-align: center;
+    line-height: 80%;
 }
-/* RODAPE[FIM] */
-/* FUNDOS[INICIO] */
-#fundo-primario, #fundo-secundario {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none;
-    z-index: 8;
+
+h3 {
+    color: #gray;
+    line-height: 80%;
+}
+
+p {
+    font-size: 16px;
+    line-height: 200%;
+}
+footer {
+    font-size: 12px;
+    color: #2E8B57;
+    text-align: center;
+    line-height: 300%;
+}
+hr {
+    color: #98FB98;
+    border-style: inset;
+    border-width: 1px;
 }

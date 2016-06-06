@@ -12,7 +12,7 @@
 <?php
 require 'conn.php';
 
-//Variaveis para os posts do formulario    
+//Variaveis para os posts do formulario
     $insere_nome = $_POST['selecnome'];
     $hrefeicao = $_POST["horarefeicao"];
     $nome_refeicao = $_POST["nomerefeicao"];
@@ -27,16 +27,17 @@ require 'conn.php';
     $sqli = "INSERT INTO `span`.`refeicao` (`id_individuo`, `hora_refeicao`, `nome_refeicao`, `alimento`, `local`, `data`, `dia_semana`, `quantidade`, `medida`)".
                                    "VALUES ('$insere_nome', '$hrefeicao', '$nome_refeicao', '$a_ingerido', '$localref', '$dtdiario', '$insere_dia', '$quant', '$insere_medida')";
 
-//Tratamento de erros da operacao        
+//Tratamento de erros da operacao
     if ($query === \mysql_query($sqli)){
-                echo "Não foi possível realizar o cadastro da informação. Por favor contate o administrador do sistema";                                            
+                echo "Não foi possível realizar o cadastro da informação. Por favor contate o administrador do sistema";
             } else {
-                echo "Cadastro realizado com sucesso";    
+                echo "Cadastro realizado com sucesso";
                echo mysql_error();
             }
 // Testa o conteúdo das variáveis declaradas
 // var_dump($_POST)
-            
+
 ?>
 </body>
+<a href="index.php"><button>Início</button></a><br />
 </html>

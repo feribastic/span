@@ -5,19 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="Felipe Ribas Coutinho" />
         <title>Diário Alimentar - Sistema Público de Avaliação Nutricional</title>
+        <h1>Sistema Público de Avaliação Nutricional</h1>
+        <h2>Departamento de Nutrição Social - Instituto de Nutrição UERJ</h2>
+        <hr width=100%><br />
         </head>
-    <body>
-    <center>
-<?php
-require 'conn.php';
-?>
-        
+
+<center>
+<body>
+    <?php
+      require 'conn.php';
+    ?>
+
 <form name ="frmdiario" method="post" action="./enviaDiario.php">
-    <div>
-    <h2><b><u>Recordatório Alimentar</u></b></h2>
-    Nome:<select name="selecnome">
-    <label for="">Selecione um nome</label> 
-    <option>Nome</option> 
+
+  <h3><u>Recordatório Alimentar</u></h3>
+  <p>
+  Nome: <select name="selecnome">
+    <label for="">Selecione um nome</label>
+    <option>Nome</option>
                 <?php
                         $sql = "SELECT * from individuo";
                         $executar = mysql_query($sql) or die (mysql_error());
@@ -27,20 +32,20 @@ require 'conn.php';
                         }
                         <option value="<?php echo $selecnome['id'] ?>"><?php echo $selecnome['nome'] ?></option>
                 <?php
-                            } 
-                            
+                            }
+
                 ?>
- 
+
         </select>
     <br />
-    Data:<input type="date" name="datadiario">
+    Data: <input type="date" name="datadiario">
     <br />
-    Hora da entrevista:<input type="time" name="horaentrevista">
+    Hora da entrevista: <input type="time" name="horaentrevista">
     <br />
     Dia da Semana:
     <select name="selecdia">
-    <label for="">Selecione um nome</label> 
-    <option>Nome</option> 
+    <label for="">Selecione um nome</label>
+    <option>Nome</option>
                 <?php
                         $sql = "SELECT * from diasemana";
                         $executar = mysql_query($sql) or die (mysql_error());
@@ -50,15 +55,15 @@ require 'conn.php';
                         }
                         <option value="<?php echo $selecdia['dia'] ?>"><?php echo $selecdia['dia'] ?></option>
                 <?php
-                            } 
-                            
+                            }
+
                 ?>
- 
+
         </select>
     <br />
-<div>
-<h2>Refeições</h2>
+<h3><u>Refeições</u></h3>
 <TABLE BORDER=1>
+  <center>
 <TR>
 <TD>Hora</TD>
 <TD>Local</TD>
@@ -73,7 +78,7 @@ require 'conn.php';
     <td><input type="text" name="nomerefeicao" maxlength="15" size=15></td>
     <td>
         <select name="selecalimento">
-            <option>Selecione um alimento</option> 
+            <option>Selecione um alimento</option>
                 <?php
                         $sql = "SELECT * from alimentos";
                         $executar = mysql_query($sql) or die (mysql_error());
@@ -83,15 +88,15 @@ require 'conn.php';
                         }
                         <option value="<?php echo $selecalimento['cod'] ?>"><?php echo $selecalimento['nome'] ?></option>
                 <?php
-                            } 
-                            
+                            }
+
                 ?>
         </select>
     </td>
     <td><input type="number" name="qtd" maxlength="5" size="5"></td>
     <td>
         <select name="selecmedida">
-            <option>Selecione uma medida</option> 
+            <option>Selecione uma medida</option>
                 <?php
                         $sql = "SELECT * from medida";
                         $executar = mysql_query($sql) or die (mysql_error());
@@ -101,22 +106,24 @@ require 'conn.php';
                         }
                         <option value="<?php echo $selecmedida['cod_medida'] ?>"><?php echo $selecmedida['descricao'] ?></option>
                 <?php
-                            } 
-                            
+                            }
+
                 ?>
         </select>
     </td>
-</TR>
+  </TR>
+  </center>
 </TABLE>
-</div>
-<center>
-    <input type=submit name="enviaentrevista" value="Enviar">
-    <input type="reset" name="limpaform" value="Limpar">
-    <button><a href="javascript:window.history.go(-1)">Voltar</a></button>
-</center>
+<p><center>
+  <input type=submit name="botao_enviar" value="Cadastrar">
+  <input type=reset name="bota_limpar" value="Limpar">
+  <button><a href="javascript:window.history.go(-1)">Voltar</a></button>
+  </center>
 </body>
-<br /> 
+</center>
+<br />
 <footer>
-    <center>Copyright 2016 - Todos os direitos reservados - Instituto de Nutrição - Departamento de Nutrição Social</center>
+  Universidade do Estado do Rio de Janeiro - Instituto de Nutrição - Departamento de Nutrção Social<br>
+  Copyright 2016 - Todos os direitos reservados
 </footer>
 </html>
