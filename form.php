@@ -4,15 +4,26 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="Felipe Ribas" />
+        <meta name="author" content="Instituto de Nutrição UERJ" />
         <title>Sistema Público de Avaliação Nutricional</title>
+        <h1>Sistema Público de Avaliação Nutricional</h1>
+        <h2>Departamento de Nutrição Social - Instituto de Nutrição UERJ</h2>
+        <hr width=100%><br />
     </head>
 <body>
 <?php
   require 'conn.php';
 ?>
 <form name ="frm" method="post" action="./enviaForm.php">
-<h3>I - Identifica&ccedil;ão</h3>
+Entrevistador: <input type="text" name="entrev" maxlength="50" size="20">&nbsp;
+Hora da entrevista: <input type="time" name="hora_entrev">&nbsp;
+Data da entrevista: <input type="date" name="data_entrev">
+<br>
+<hr>
+<br>
+<h2>Ficha Pessoal</h2>
+<hr>
+<h3>I - Identificação</h3>
 <p>
 Nome <input type="text" name="txtNome" maxlength="150" size="70">
 Data de nascimento <input type="date" name="txtData" maxlength="8" size="8"><br>
@@ -24,7 +35,10 @@ Estado Civil<input type="radio" name="radEC" value="Solteiro">Solteiro(a)
 <input type="radio" name="radEC" value="Casado/União">Casado(a)/União consensual
 <input type="radio" name="radEC" value="Divorciado">Divorciado(a)/Separado(a)
 <input type="radio" name="radEC" value="Viúvo">Viúvo(a)<br>
-Religião <input type="text" name="txtReligiao" maxlength="255" size="50"><br></P>
+Religião <input type="text" name="txtReligiao" maxlength="255" size="50"><br>
+Por que se inscreveu no Curso de Nutrição e Terceira Idade?<br>
+<input type="text" name="txtPergunta" maxlength="255" size="100"><br>
+</P>
 <h3>II - Endere&ccedil;o</h3>
 <P>
 Logradouro <input type="text" name="txtEndereco" maxlength="150" size="100"><br>
@@ -148,8 +162,6 @@ Com que Frequência? <input disabled type="text"  name="txtBFreq" maxlength="255
 Na sua opinião, o que é uma alimentação saudável?<br>
 <input type="text"  name="txtAS" maxlength="255" size="100"><br>
 <br />
-Por que se inscreveu no Curso de Nutrição e Terceira Idade?<br>
-<input type="text" name="txtPergunta" maxlength="255" size="100"><br>
 <p>
     <input type=submit name="botao_enviar" value="Cadastrar">
     <input type=reset name="bota_limpar" value="Limpar">

@@ -13,6 +13,9 @@
 <?php
 include 'conn.php';
 
+    $entrev = $_POST["entrev"];
+    $dataentrev = $_POST["data_entrev"];
+    $horaentrev = $_POST["hora_entrev"];
     $nome = $_POST["txtNome"];
     $dnasc = $_POST["txtData"];
     $idade = $_POST["txtIdade"];
@@ -59,8 +62,8 @@ include 'conn.php';
 
 
 //Insere dados do formulario no banco
-    $sql = "INSERT INTO `individuo`(`nome`, `nasc`, `idade`, `sexo`, `naturalidade`, `nacionalidade`, `endereco`, `cep`, `bairro`, `municipio`, `telefone1`, `telefone2`, `email`, `escolaridade`, `curso`, `profissao`, `trabalha_atualmente`, `aposentado`, `estado_civil`, `arranjo_domiciliar`, `pessoas_m_domicilio`, `num_pessoas_renda`, `tipo_renda`, `renda_mensal`, `religiao`, `motivo_inscricao`, `altura`, `peso`, `estado_saude`, `plano_saude`, `doenca1`, `doenca2`, `doenca3`, `doenca_outros`, `medicamentos`, `fitoterapicos`, `cirurgias`, `tabagista`, `tabagismo_tempo`, `alcool`, `alcool_tipo`, `alcool_freq`, `opiniao`)".
-                            "VALUES ('$nome','$dnasc', '$idade', '$sexo', '$naturalidae', '$nacionalidade', '$endereco', '$CEP', '$bairro', '$municipio', '$tel1', '$tel2', '$email', '$escolaridade', '$curso', '$profissao', '$trabalhando', '$aposentado', '$estadoCivil', '$arranjoDomiciliar', '$numeroDomicilio', '$pessoasRenda', '$tipoRenda', '$renda', '$religiao', '$motivoinsc', '$altura', '$peso', '$ESsaude', '$radpsp', '$ins_doenca1', '$ins_doenca2', '$ins_doenca3', '$outrasdoencas', '$medicamentos', '$suplementos', '$cirurgia', '$tabagista', '$tempofumo', '$bebida', '$bebida_tipo', '$bebida_freq', '$opiniao')";
+    $sql = "INSERT INTO `individuo`(`entrevistador`, `data_entrev`, `hora_entrev`, `nome`, `nasc`, `idade`, `sexo`, `naturalidade`, `nacionalidade`, `endereco`, `cep`, `bairro`, `municipio`, `telefone1`, `telefone2`, `email`, `escolaridade`, `curso`, `profissao`, `trabalha_atualmente`, `aposentado`, `estado_civil`, `arranjo_domiciliar`, `pessoas_m_domicilio`, `num_pessoas_renda`, `tipo_renda`, `renda_mensal`, `religiao`, `motivo_inscricao`, `altura`, `peso`, `estado_saude`, `plano_saude`, `doenca1`, `doenca2`, `doenca3`, `doenca_outros`, `medicamentos`, `fitoterapicos`, `cirurgias`, `tabagista`, `tabagismo_tempo`, `alcool`, `alcool_tipo`, `alcool_freq`, `opiniao`)".
+                            "VALUES ('$entrev', '$dataentrev', '$horaentrev', '$nome','$dnasc', '$idade', '$sexo', '$naturalidae', '$nacionalidade', '$endereco', '$CEP', '$bairro', '$municipio', '$tel1', '$tel2', '$email', '$escolaridade', '$curso', '$profissao', '$trabalhando', '$aposentado', '$estadoCivil', '$arranjoDomiciliar', '$numeroDomicilio', '$pessoasRenda', '$tipoRenda', '$renda', '$religiao', '$motivoinsc', '$altura', '$peso', '$ESsaude', '$radpsp', '$ins_doenca1', '$ins_doenca2', '$ins_doenca3', '$outrasdoencas', '$medicamentos', '$suplementos', '$cirurgia', '$tabagista', '$tempofumo', '$bebida', '$bebida_tipo', '$bebida_freq', '$opiniao')";
 
 
     echo $sql;

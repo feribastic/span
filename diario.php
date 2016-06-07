@@ -1,14 +1,14 @@
 <html lang="pt-BR">
     <link href="css/base.css" rel="stylesheet">
-        <head>
+    <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="Felipe Ribas Coutinho" />
-        <title>Diário Alimentar - Sistema Público de Avaliação Nutricional</title>
+        <meta name="author" content="Instituto de Nutrição UERJ" />
+        <title>Sistema Público de Avaliação Nutricional</title>
         <h1>Sistema Público de Avaliação Nutricional</h1>
         <h2>Departamento de Nutrição Social - Instituto de Nutrição UERJ</h2>
         <hr width=100%><br />
-        </head>
+    </head>
 
 <center>
 <body>
@@ -40,7 +40,7 @@
     <br />
     Data: <input type="date" name="datadiario">
     <br />
-    Hora da entrevista: <input type="time" name="horaentrevista">
+    Hora da entrevista: <input type="time" name="horaentrevista" maxlength="5" size="5">
     <br />
     Dia da Semana:
     <select name="selecdia">

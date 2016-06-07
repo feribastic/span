@@ -13,26 +13,27 @@
 require 'conn.php';
 
 //Variaveis para os posts do formulario
-    $insere_nome = $_POST['selecnome'];
+    $hora_ent = $_POST["horaentrevista"];
+    $insere_nome = $_POST["selecnome"];
     $hrefeicao = $_POST["horarefeicao"];
     $nome_refeicao = $_POST["nomerefeicao"];
     $localref = $_POST["localrefeicao"];
-    $a_ingerido = $_POST['selecalimento'];
+    $a_ingerido = $_POST["selecalimento"];
     $dtdiario = $_POST["datadiario"];
     $quant = $_POST["qtd"];
-    $insere_medida = $_POST['selecmedida'];
-    $insere_dia = $_POST['selecdia'];
+    $insere_medida = $_POST["selecmedida"];
+    $insere_dia = $_POST["selecdia"];
 
 //Insere os dados no banco de dados
-    $sqli = "INSERT INTO `span`.`refeicao` (`id_individuo`, `hora_refeicao`, `nome_refeicao`, `alimento`, `local`, `data`, `dia_semana`, `quantidade`, `medida`)".
-                                   "VALUES ('$insere_nome', '$hrefeicao', '$nome_refeicao', '$a_ingerido', '$localref', '$dtdiario', '$insere_dia', '$quant', '$insere_medida')";
+    $sqli = "INSERT INTO `span`.`refeicao` (`id_individuo`, `data`, `hora_entrevista`, `dia_semana`, `hora_refeicao`, `local`, `nome_refeicao`, `alimento`, `quantidade`, `medida`)".
+                                   "VALUES ('$insere_nome', '$dtdiario', '$hora_ent', '$insere_dia', '$hrefeicao', '$localref', '$nome_refeicao', '$a_ingerido', '$quant', '$insere_medida')";
 
 //Tratamento de erros da operacao
     if ($query === \mysql_query($sqli)){
-                echo "Não foi possível realizar o cadastro da informação. Por favor contate o administrador do sistema";
-            } else {
                 echo "Cadastro realizado com sucesso";
-               echo mysql_error();
+            } else {
+                echo "Não foi possível realizar o cadastro da informação. Por favor contate o administrador do sistema";
+               mysql_error();
             }
 // Testa o conteúdo das variáveis declaradas
 // var_dump($_POST)
