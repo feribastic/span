@@ -40,3 +40,12 @@ hr {
     border-style: inset;
     border-width: 1px;
 }
+table,th,td{
+  border:1px solid #D9D9F3;;
+  border-collapse:collapse;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+
+}
+input.noBorder{ border:0px solid transparent; padding: 3px;}
+input.noBorder:FOCUS{ background-color: #C0D9D9;}

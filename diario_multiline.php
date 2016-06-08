@@ -16,9 +16,13 @@
       require 'conn.php';
     ?>
 
-<form name ="frmdiario" method="post" action="./enviaDiario.php">
-
-  <h3><u>Recordatório Alimentar</u></h3>
+<form name ="frmdiario" method="post" action="./enviaDiario_multi.php">
+<p>
+  Entrevistador: <input type="text" name="entrevistador">
+  Data: <input type="date" name="dataentrevista">
+  Hora da entrevista: <input type="time" name="horaentrevista" maxlength="5" size="5">
+  <br>
+<h3><u>Recordatório Alimentar</u></h3>
   <p>
   Nome: <select name="selecnome">
     <label for="">Selecione um nome</label>
@@ -38,10 +42,8 @@
 
         </select>
     <br />
-    Data: <input type="date" name="datadiario">
-    <br />
-    Hora da entrevista: <input type="time" name="horaentrevista" maxlength="5" size="5">
-    <br />
+    Data do diário: <input type="date" name="datadiario">
+    <br>
     Dia da Semana:
     <select name="selecdia">
     <label for="">Selecione um nome</label>
@@ -62,21 +64,33 @@
         </select>
     <br />
 <h3><u>Refeições</u></h3>
+<script language="javascript">
+function clonarLinha(){
+  var row = document.getElementById("linhaParaClonar");
+  var table = document.getElementById("tabela");
+  var clone = row.cloneNode(true);
+  clone.id = "linhaClonada";
+  table.appendChild(clone);
+}
+</script>
 <TABLE BORDER=1>
   <center>
-<TR>
-<TD>Hora</TD>
-<TD>Local</TD>
-<TD>Refeição</TD>
-<TD>Alimentos ingeridos</TD>
-<TD>Qtd.</TD>
-<td>Medida</td>
-</TR>
-<TR>
-    <td><input type="time" name="horarefeicao" maxlength="5" size="5"></td>
-    <TD><input type="text" name="localrefeicao" maxlength="8" size="8"></td>
-    <td><input type="text" name="nomerefeicao" maxlength="15" size=15></td>
-    <td>
+    <thead>
+        <TR>
+          <th>Hora</th>
+          <th>Local</th>
+          <th>Refeição</th>
+          <th>Alimentos ingeridos</th>
+          <th>Qtd.</th>
+          <th>Medida</th>
+        </TR>
+    </thead>
+    <tbody id = "tabela">
+        <tr id = "linhaParaClonar">
+          <td><input type="time" name="horarefeicao" maxlength="5" size="5"></td>
+          <td><input type="text" name="localrefeicao" maxlength="8" size="8"></td>
+          <td><input type="text" name="nomerefeicao" maxlength="15" size=15></td>
+        <td>
         <select name="selecalimento">
             <option>Selecione um alimento</option>
                 <?php
@@ -93,8 +107,8 @@
                 ?>
         </select>
     </td>
-    <td><input type="number" name="qtd" maxlength="5" size="5"></td>
-    <td>
+      <td><input type="number" name="qtd" maxlength="5" size="5"></td>
+      <td>
         <select name="selecmedida">
             <option>Selecione uma medida</option>
                 <?php
@@ -110,55 +124,21 @@
 
                 ?>
         </select>
-    </td>
-    <TR>
-        <td><input type="time" name="horarefeicaob" maxlength="5" size="5"></td>
-        <TD><input type="text" name="localrefeicaob" maxlength="8" size="8"></td>
-        <td><input type="text" name="nomerefeicaob" maxlength="15" size=15></td>
-        <td>
-            <select name="selecalimentob">
-                <option>Selecione um alimento</option>
-                    <?php
-                            $sql = "SELECT * from alimentos";
-                            $executar = mysql_query($sql) or die (mysql_error());
-                            while ($selecalimento = mysql_fetch_array ($executar))
-                            {
-                        ?>
-                            }
-                            <option value="<?php echo $selecalimento['cod'] ?>"><?php echo $selecalimento['nome'] ?></option>
-                    <?php
-                                }
-
-                    ?>
-            </select>
-        </td>
-        <td><input type="number" name="qtdb" maxlength="5" size="5"></td>
-        <td>
-            <select name="selecmedidab">
-                <option>Selecione uma medida</option>
-                    <?php
-                            $sql = "SELECT * from medida";
-                            $executar = mysql_query($sql) or die (mysql_error());
-                            while ($selecmedida = mysql_fetch_array ($executar))
-                            {
-                        ?>
-                            }
-                            <option value="<?php echo $selecmedida['cod_medida'] ?>"><?php echo $selecmedida['descricao'] ?></option>
-                    <?php
-                                }
-
-                    ?>
-            </select>
-        </td>
-        </TR>
+      </td>
+    </tr>
   </center>
+</tbody>
 </TABLE>
-<p><center>
+<input type="button" onclick="clonarLinha()" value="Nova refeição" />
+<br>
+<br>
+<br>
+<p>
+<center>
   <input type=submit name="botao_enviar" value="Cadastrar">
   <input type=reset name="bota_limpar" value="Limpar">
   <button><a href="javascript:window.history.go(-1)">Voltar</a></button>
   </center>
-</body>
 </center>
 <br />
 <footer>

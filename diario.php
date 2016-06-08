@@ -17,8 +17,12 @@
     ?>
 
 <form name ="frmdiario" method="post" action="./enviaDiario.php">
-
-  <h3><u>Recordatório Alimentar</u></h3>
+<p>
+  Entrevistador: <input type="text" name="entrevistador">
+  Data: <input type="date" name="dataentrevista">
+  Hora da entrevista: <input type="time" name="horaentrevista" maxlength="5" size="5">
+  <br>
+<h3><u>Recordatório Alimentar</u></h3>
   <p>
   Nome: <select name="selecnome">
     <label for="">Selecione um nome</label>
@@ -38,10 +42,8 @@
 
         </select>
     <br />
-    Data: <input type="date" name="datadiario">
-    <br />
-    Hora da entrevista: <input type="time" name="horaentrevista" maxlength="5" size="5">
-    <br />
+    Data do diário: <input type="date" name="datadiario">
+    <br>
     Dia da Semana:
     <select name="selecdia">
     <label for="">Selecione um nome</label>
