@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+localhost<!DOCTYPE html>
 <html lang="pt-BR">
     <link href="css/base.css" rel="stylesheet">
     <head>
@@ -143,7 +143,7 @@ Doença 3: <select name="selecdoencas3">
                 ?>
 </select>
 <br />
-Outras doenças não especificadas <input type="text" name="txtOutrosD" maxlength="255" size="20">
+Outras doenças:<input type="text" name="txtOutrosD" maxlength="255" size="20">
 <br />
 Medicamentos utilizados <input type="text" name="txtMedicamentos" maxlength="255" size="80"><br>
 Suplementos ou fitoterápicos utilizados <input type="text" name="txtSuplementos" maxlength="255" size="80"><br>
