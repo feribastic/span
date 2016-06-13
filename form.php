@@ -1,4 +1,4 @@
-localhost<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
     <link href="css/base.css" rel="stylesheet">
     <head>
@@ -146,7 +146,7 @@ Doença 3: <select name="selecdoencas3">
 Outras doenças:<input type="text" name="txtOutrosD" maxlength="255" size="20">
 <br />
 Medicamentos utilizados <input type="text" name="txtMedicamentos" maxlength="255" size="80"><br>
-Suplementos ou fitoterápicos utilizados <input type="text" name="txtSuplementos" maxlength="255" size="80"><br>
+Suplementos ou fitoterápicos utilizados <input type="text" name="txtSuplementos" maxlength="255" size="65"><br>
 Já fez alguma cirurgia? <input type="text" name="txtCirurgia" maxlength="255" size="80"><br>
 Tabagista?
 <input type="radio" name="radTabagista" value="Sim" onclick="frm.txtTempofumo.disabled=false">Sim
@@ -158,19 +158,79 @@ Ingere bebida alcoolica?
 <br>
 Qual? <input disabled type="text"  name="txtBTipo" maxlength="255" size="30">
 Com que Frequência? <input disabled type="text"  name="txtBFreq" maxlength="255" size="30"><br></P>
+</p>
 <h3>VII-Alimentação</h3>
-Na sua opinião, o que é uma alimentação saudável?<br>
-<input type="text"  name="txtAS" maxlength="255" size="100"><br>
-<br />
 <p>
+Na sua opinião, o que é uma alimentação saudável?<br>
+<input type="text"  name="txtAS" maxlength="255" size="100"><br />
+Considera a sua alimentação saudável?<br>
+<input type="radio" name="radalimsaud" value="Sim">Sim
+<input type="radio" name="radalimsaud" value="Nao">Não
+<input type="radio" name="radalimsaud" value="Sim e Nao">Sim e Não<br>
+Se não, o que dificulta ter uma alimentação saudável?<br>
+<input type="text"  name="txtJustificaAS" maxlength="255" size="100"><br />
+Quem compra os alimentos?<br>
+<input type="radio" name="radCompraalimentos" value="Proprio">Proprio (a)
+<input type="radio" name="radCompraalimentos" value="Proprio e familiar">Proprio (a) e familiar
+<input type="radio" name="radCompraalimentos" value="Familiar">Familiar
+<input type="radio" name="radCompraalimentos" value="Proprio e empregada">Proprio (a) e empregada
+<input type="radio" name="radCompraalimentos" value="Empregada">Empregada<br>
+Quem define o que vai ser preparado?<br>
+<input type="radio" name="radDefinealimentos" value="Proprio">Proprio (a)
+<input type="radio" name="radDefinealimentos" value="Proprio e familiar">Proprio (a) e familiar
+<input type="radio" name="radDefinealimentos" value="Familiar">Familiar
+<input type="radio" name="radDefinealimentos" value="Proprio e empregada">Proprio (a) e empregada
+<input type="radio" name="radDefinealimentos" value="Empregada">Empregada<br>
+Quem prepara sua alimentação?<br>
+<input type="radio" name="radPreparaalimentos" value="Proprio">Proprio (a)
+<input type="radio" name="radPreparaalimentos" value="Proprio e familiar">Proprio (a) e familiar
+<input type="radio" name="radPreparaalimentos" value="Familiar">Familiar
+<input type="radio" name="radPreparaalimentos" value="Proprio e empregada">Proprio (a) e empregada
+<input type="radio" name="radPreparaalimentos" value="Empregada">Empregada<br>
+Já recebeu alguma orientação sobre alimentação ou dieta?<br>
+<input type="radio" name="radOrienta" value="Sim">Sim
+<input type="radio" name="radOrienta" value="Nao">Não<br>
+De quem?<br>
+<input type="radio" name="radPreparaalimentos" value="Proprio">Nutricionista
+<input type="radio" name="radPreparaalimentos" value="Proprio e familiar">Endocrinologista
+<input type="radio" name="radPreparaalimentos" value="Familiar">Cardiologista &nbsp; Outros:&nbsp;<input type="text"  name="txtQuemorienta" maxlength="255" size="50"><br>
+Faz uso de algum tipo de tempero artificial?<br>
+<input type="radio" name="radTempero" value="Sim">Sim
+<input type="radio" name="radTempero" value="Nao">Não &nbsp; Qual?:&nbsp;<input type="text"  name="txtTipotempero" maxlength="255" size="75"><br>
+Faz uso de adoçante?<br>
+<input type="radio" name="radAdocante" value="Sim">Sim
+<input type="radio" name="radAdocante" value="Nao">Não &nbsp; Qual?:&nbsp;<input type="text"  name="txtTipoadocante" maxlength="255" size="75"><br>
+</p>
+<h3>VII-Auto-imagem</h3>
+<p>
+Qual a aparência física que mais se parece com você atualmente? Nº:&nbsp;<input type="text"  name="txtImagem" maxlength="2" size="2"><br>
+Qual a aparência física que mais gostaria de ter? Nº:&nbsp;<input type="text"  name="txtImagempretendida" maxlength="2" size="2"><br>
+Como vc se sente em realção ao seu corpo?<br>
+<input type="text"  name="txtcorpo" maxlength="255" size="100"><br>
+Que parte do seu corpo você mais gosta?:&nbsp;<input type="text"  name="txtMaisgosta" maxlength="100" size="62"><br>
+Que parte do seu corpo você menos gosta?:&nbsp;<input type="text"  name="txtMenosgosta" maxlength="100" size="60"><br>
+O que você gostaria de fazer para modificar o seu corpo?<br>
+<input type="text"  name="txtModificacorpo" maxlength="255" size="100"><br>
+
+
+
+
+
+
+
+<hr>
+<p>
+  <center>
     <input type=submit name="botao_enviar" value="Cadastrar">
     <input type=reset name="bota_limpar" value="Limpar">
     <button><a href="javascript:window.history.go(-1)">Voltar</a></button>
+  </center>
 </P>
 </body>
 <br />
 <br />
 <br />
+<hr>
 <footer>
   Universidade do Estado do Rio de Janeiro - Instituto de Nutrição - Departamento de Nutrção Social<br>
   Copyright 2016 - Todos os direitos reservados
