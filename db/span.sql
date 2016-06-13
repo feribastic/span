@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: localhost
--- Data de Criação: 08-Jun-2016 às 12:12
+-- Data de Criação: 13-Jun-2016 às 10:03
 -- Versão do servidor: 5.5.49-0ubuntu0.14.04.1
 -- versão do PHP: 5.5.9-1ubuntu4.17
 
@@ -1783,17 +1783,29 @@ CREATE TABLE IF NOT EXISTS `individuo` (
   `alcool_tipo` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `alcool_freq` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `opiniao` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `conalimsaud` varchar(20) COLLATE utf8_bin NOT NULL,
+  `justificaalimentacao` varchar(255) COLLATE utf8_bin NOT NULL,
+  `justalimsaud` varchar(255) COLLATE utf8_bin NOT NULL,
+  `compralimento` varchar(50) COLLATE utf8_bin NOT NULL,
+  `definealimento` varchar(255) COLLATE utf8_bin NOT NULL,
+  `preparaalimento` varchar(50) COLLATE utf8_bin NOT NULL,
+  `orientaalimenta` varchar(10) COLLATE utf8_bin NOT NULL,
+  `quemorientaou` varchar(100) COLLATE utf8_bin NOT NULL,
+  `orienta_tipo` varchar(255) COLLATE utf8_bin NOT NULL,
+  `temperoartificial` varchar(100) COLLATE utf8_bin NOT NULL,
+  `tipo_tempero` varchar(255) COLLATE utf8_bin NOT NULL,
+  `usa_adocante` varchar(10) COLLATE utf8_bin NOT NULL,
+  `qual_adocante` int(11) NOT NULL,
+  `imagem` int(2) NOT NULL,
+  `imagempretendida` int(2) NOT NULL,
+  `corpo` varchar(255) COLLATE utf8_bin NOT NULL,
+  `maisgosta` varchar(255) COLLATE utf8_bin NOT NULL,
+  `menosgosta` varchar(255) COLLATE utf8_bin NOT NULL,
+  `modificacorpo` varchar(255) COLLATE utf8_bin NOT NULL,
   `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=12 ;
-
---
--- Extraindo dados da tabela `individuo`
---
-
-INSERT INTO `individuo` (`id`, `entrevistador`, `data_entrev`, `hora_entrev`, `nome`, `nasc`, `idade`, `sexo`, `naturalidade`, `nacionalidade`, `endereco`, `cep`, `bairro`, `municipio`, `telefone1`, `telefone2`, `email`, `escolaridade`, `curso`, `profissao`, `trabalha_atualmente`, `aposentado`, `estado_civil`, `arranjo_domiciliar`, `pessoas_m_domicilio`, `num_pessoas_renda`, `tipo_renda`, `renda_mensal`, `religiao`, `motivo_inscricao`, `altura`, `peso`, `estado_saude`, `plano_saude`, `doenca1`, `doenca2`, `doenca3`, `doenca_outros`, `medicamentos`, `fitoterapicos`, `cirurgias`, `tabagista`, `tabagismo_tempo`, `alcool`, `alcool_tipo`, `alcool_freq`, `opiniao`, `data`) VALUES
-(10, 'Roberto Carlos', '2016-06-07', '13:00:00', 'Fulano de Tal da Silva', '2016-02-03', 34, 'M', 'Rio de Janeiro', 'Brasileiro', 'rua sao francisco', 21020330, 'Penha', 'Rio de Janeiro', 23340150, 999999999, 'fulanodetal@gmail.com', 'SC', '', 'Servidor', 'Sim', 'Não', 'Casado/União', 'Conjugue', 2, 2, 'Familiar', '>=10SM', 'Catolico', 'Nenhum', 1.72, 80, 'Boa', 'Sim', 1, 0, 0, '', 'Nenhum', 'Nenhum', 'Nenhum', 'Nao', 'NULL', 'Sim', 'NULL', 'NULL', 'Nenhum', '2016-06-07 18:15:41');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
