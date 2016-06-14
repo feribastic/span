@@ -44,7 +44,9 @@ table,th,td{
   border:1px solid #D9D9F3;;
   border-collapse:collapse;
   font-family: Arial,sans-serif;
-  font-size: 12px;
+  font-size: 16px;
+  text-align: left;
+  line-height: 200%;
 
 }
 input.noBorder{ border:0px solid transparent; padding: 3px;}
