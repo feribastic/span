@@ -28,7 +28,6 @@ Data da entrevista: <input type="date" name="data_entrev">
 Nome <input type="text" name="txtNome" maxlength="150" size="70">
 Data de nascimento <input type="date" name="txtData" maxlength="8" size="8"><br>
 Idade <input type="text" name="txtIdade" maxlength="3" size="3">  Sexo <input type="radio" name="radSexo" value="F">F <input type="radio" name="radSexo" value="M">M <br>
-Altura <input type="text" name=txtAltura size="6" maxlength="6"> - Peso <input type="text" name=txtPeso size="6" maxlength="6"><br>
 Naturalidade <input type="text" name="txtNaturalidade" maxlength="20" size="20">
 Nacionalidade <input type="text" name="txtNacionalidade" maxlength="20" size="20"><br>
 Estado Civil<input type="radio" name="radEC" value="Solteiro">Solteiro(a)
@@ -201,7 +200,7 @@ Faz uso de adoçante?<br>
 <input type="radio" name="radAdocante" value="Sim">Sim
 <input type="radio" name="radAdocante" value="Nao">Não &nbsp; Qual?:&nbsp;<input type="text"  name="txtTipoadocante" maxlength="255" size="75"><br>
 </p>
-<h3>VII-Auto-imagem</h3>
+<h3>VIII-Auto-imagem</h3>
 <p>
 Qual a aparência física que mais se parece com você atualmente? Nº:&nbsp;<input type="text"  name="txtImagem" maxlength="2" size="2"><br>
 Qual a aparência física que mais gostaria de ter? Nº:&nbsp;<input type="text"  name="txtImagempretendida" maxlength="2" size="2"><br>
@@ -211,13 +210,69 @@ Que parte do seu corpo você mais gosta?:&nbsp;<input type="text"  name="txtMais
 Que parte do seu corpo você menos gosta?:&nbsp;<input type="text"  name="txtMenosgosta" maxlength="100" size="60"><br>
 O que você gostaria de fazer para modificar o seu corpo?<br>
 <input type="text"  name="txtModificacorpo" maxlength="255" size="100"><br>
-
-
-
-
-
-
-
+</p>
+Pratica atividade física?&nbsp;<input type="radio" name="radOrienta" value="Sim">Sim &nbsp;<input type="radio" name="radOrienta" value="Nao">Não<br>
+<h3>IX-Atividade física</h3>
+<p>
+Quais?<br>
+Modalidade:<input type="text"  name="txtModalidade1" maxlength="30" size="20">
+    &nbsp;Dias da semana:<input type="text"  name="txtModalidade1dias" maxlength="2" size="2">
+    &nbsp;Duração:<input type="time"  name="timeModalidade1duracao" maxlength="20" size="20"><br>
+Modalidade:<input type="text"  name="txtModalidade2" maxlength="30" size="20">
+    &nbsp;Dias da semana:<input type="text"  name="txtModalidade2dias" maxlength="2" size="2">
+    &nbsp;Duração:<input type="time"  name="timeModalidade2duracao" maxlength="20" size="20"><br>
+Modalidade:<input type="text"  name="txtModalidade3" maxlength="30" size="20">
+    &nbsp;Dias da semana:<input type="text"  name="txtModalidade3dias" maxlength="2" size="2">
+    &nbsp;Duração:<input type="time"  name="timeModalidade3duracao" maxlength="20" size="20"><br>
+</p>
+<h3>X-Avaliação do estado nutricional</h3>
+<p>
+Peso usual: <input type="text"  name="txtpesousual" maxlength="2" size="2"> Kg
+     &nbsp;Estatura referida: <input type="text"  name="txtestaturaref" maxlength="2" size="2"> m
+     &nbsp;Peso atual: <input type="text"  name="txtpesousual" maxlength="2" size="2"> Kg<br>
+</p>
+<p>
+<TABLE BORDER=1>
+ <center>
+     <TR>
+     <TD>Medida</TD>
+     <TD>Medida 1</TD>
+     <TD>Medida 2</TD>
+     <TD>Média</TD>
+     </TR>
+     <TR>
+         <td>Altura</td>
+         <td><input type="text" name="textaltura1" maxlength="4" size="5"></td>
+         <td><input type="text" name="textaltura2" maxlength="4" size="5"></td>
+         <td><input type="text" name="textmedia" maxlength="4" size="5"></td>
+         </td>
+       </TR>
+     <TR>
+           <td>Perímetro do braço</td>
+           <td><input type="text" name="textbraco1" maxlength="5" size="5"></td>
+           <td><input type="text" name="textbraco2" maxlength="5" size="5"></td>
+           <td><input type="text" name="textbracomedia" maxlength="5" size="5"></td>
+           </td>
+     </TR>
+     <TR>
+           <td>Perímetro da cintura</td>
+           <td><input type="text" name="textcintura1" maxlength="5" size="5"></td>
+           <td><input type="text" name="textcintura2" maxlength="5" size="5"></td>
+           <td><input type="text" name="textcinturamedia" maxlength="5" size="5"></td>
+           </td>
+     </TR>
+     <TR>
+           <td>Perímetro da panturrilha</td>
+           <td><input type="text" name="textpantu1" maxlength="5" size="5"></td>
+           <td><input type="text" name="textpantu2" maxlength="5" size="5"></td>
+           <td><input type="text" name="textpantumedia" maxlength="5" size="5"></td>
+           </td>
+     </TR>
+ </center>
+</TABLE>
+</p>
+IMC: <input type="text" name="textimc" maxlength="5" size="5"> Kg/m2<br>
+<br />
 <hr>
 <p>
   <center>
