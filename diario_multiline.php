@@ -1,4 +1,4 @@
-456<html lang="pt-BR">
+<html lang="pt-BR">
     <link href="css/base.css" rel="stylesheet">
     <head>
         <meta charset="UTF-8" />
@@ -65,11 +65,13 @@
     <br />
 <h3><u>Refeições</u></h3>
 <script language="javascript">
+var idRefeicao = 0;
 function clonarLinha(){
   var row = document.getElementById("linhaParaClonar");
   var table = document.getElementById("tabela");
   var clone = row.cloneNode(true);
-  clone.id = "linhaClonada";
+  clone.id = "linhaClonada" + idRefeicao++;
+  clone.querySelectorAll('input, select').forEach(function(a){a.name = a.name.replace('0', idRefeicao)})
   table.appendChild(clone);
 }
 </script>
@@ -87,11 +89,11 @@ function clonarLinha(){
     </thead>
     <tbody id = "tabela">
         <tr id = "linhaParaClonar">
-          <td><input type="time" name="horarefeicao" maxlength="5" size="5"></td>
-          <td><input type="text" name="localrefeicao" maxlength="8" size="8"></td>
-          <td><input type="text" name="nomerefeicao" maxlength="15" size=15></td>
+          <td><input type="time" name="refeicao[0][horarefeicao]" maxlength="5" size="5"></td>
+          <td><input type="text" name="refeicao[0][localrefeicao]" maxlength="8" size="8"></td>
+          <td><input type="text" name="refeicao[0][nomerefeicao]" maxlength="15" size=15></td>
         <td>
-        <select name="selecalimento">
+        <select name="refeicao[0][selecalimento]">
             <option>Selecione um alimento</option>
                 <?php
                         $sql = "SELECT * from alimentos";
@@ -107,9 +109,9 @@ function clonarLinha(){
                 ?>
         </select>
     </td>
-      <td><input type="number" name="qtd" maxlength="5" size="5"></td>
+      <td><input type="number" name="refeicao[0][qtd]" maxlength="5" size="5"></td>
       <td>
-        <select name="selecmedida">
+        <select name="refeicao[0][selecmedida]">
             <option>Selecione uma medida</option>
                 <?php
                         $sql = "SELECT * from medida";
